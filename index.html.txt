@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Seek</title>
+	</head>
+<body>
+Seek Resorvation
+</body>
+
+</html>
