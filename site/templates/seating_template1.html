@@ -83,7 +83,7 @@ div.seatCharts-seat.unavailable {
 }
 div.seatCharts-container {
 	border-right: 1px dotted #adadad;
-	width: 200px;
+	width: 500px;
 	padding: 20px;
 	float: left;
 }
@@ -139,12 +139,13 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
       <div class="front-indicator">Front</div>
     </div>
     <div class="booking-details">
-      <h2>Classroom Details</h2>
+      <h2>Booking Details</h2>
       <h3> Selected Seats (<span id="counter">0</span>):</h3>
       <ul id="selected-seats">
       </ul>
-      Total: <b>$<span id="total">0</span></b>
-      <button class="checkout-button">Checkout &raquo;</button>
+      <!-- Total: <b>$<span id="total">0</span></b> -->
+      <button class="checkout-button">Make Priority Seat &raquo;</button>
+      <button class="checkout-button">Make Unavailable &raquo;</button>
       <div id="legend"></div>
     </div>
   </div>
@@ -161,26 +162,27 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 					$total = $('#total'),
 					sc = $('#seat-map').seatCharts({
 					map: [
-						'ff_ff',
-						'ff_ff',
-						'ee_ee',
-						'ee_ee',
-						'ee___',
-						'ee_ee',
-						'ee_ee',
-						'ee_ee',
-						'eeeee',
+						'ff_ff_ff_ff',
+						'ff_ff_ff_ff',
+                        '___________',
+						'ee_ee_ee_ee',
+						'ee_ee_ee_ee',
+						'___________',
+						'ee_ee_ee_ee',
+						'ee_ee_ee_ee',
+						'___________',
+						'eeeeeeeeeee',
 					],
 					seats: {
 						f: {
-							price   : 100,
+							price   : 0,
 							classes : 'first-class', //your custom CSS class
-							category: 'First Class'
+							category: 'Priority Seating'
 						},
 						e: {
-							price   : 40,
+							price   : 0,
 							classes : 'economy-class', //your custom CSS class
-							category: 'Economy Class'
+							category: 'Regular Seating'
 						}					
 					
 					},
@@ -193,15 +195,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 					legend : {
 						node : $('#legend'),
 					    items : [
-							[ 'f', 'available',   'First Class' ],
-							[ 'e', 'available',   'Economy Class'],
+							[ 'f', 'available',   'Priority Seat' ],
+							[ 'e', 'available',   'Regular Seat'],
 							[ 'f', 'unavailable', 'Already Booked']
 					    ]					
 					},
 					click: function () {
 						if (this.status() == 'available') {
 							//let's create a new <li> which we'll add to the cart items
-							$('<li>'+this.data().category+' Seat # '+this.settings.label+': <b>$'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+							//$('<li>'+this.data().category+' Seat # '+this.settings.label+': <b>$'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+                            $('<li>'+this.data().category+' Seat #'+this.settings.label+' <a href="#" class="cancel-cart-item">[cancel]</a></li>')
 								.attr('id', 'cart-item-'+this.settings.id)
 								.data('seatId', this.settings.id)
 								.appendTo($cart);
@@ -243,7 +246,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 				});
 
 				//let's pretend some seats have already been booked
-				sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+                //row_col
+				//sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
 		
 		});
 
