@@ -13,4 +13,12 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+
+    user_type = current_user.user_type
+    
+
+    if user_type == True:
+        return render_template('instructor_profile.html', name=current_user.name, user_type=current_user.user_type)
+    return render_template('student_profile.html', name=current_user.name, user_type=current_user.user_type)
+
+

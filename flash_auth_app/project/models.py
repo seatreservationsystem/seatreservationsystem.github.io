@@ -1,6 +1,6 @@
  # models.py
 
-from flask_login import UserMixin
+from flask_login import UserMixin 
 from . import db
 
 class User(UserMixin, db.Model):
@@ -8,3 +8,4 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
+    user_type = db.Column(db.Boolean, default=False) #False means user is a student

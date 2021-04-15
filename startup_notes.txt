@@ -1,0 +1,15 @@
+1) Navigate to auth folder (the virtual env) the enter "source ./bin/activate". The virtual env with flask should be running
+2) return to flash_auth_app directory and enter:
+
+    export FLASK_APP=project
+    export FLASK_DEBUG=1
+    export FLASK_ENV=development
+    flask run
+
+
+
+
+to create the db:
+
+>>> from project import db, create_app, models
+>>> db.create_all(app=create_app())
