@@ -79,7 +79,7 @@ def readFromSQL(name):
         mydb = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        password = "TotheedgeMySQL20",
+        password = "Final-Passw8rd",
         database = "test" 
         )
         mycursor = mydb.cursor()
@@ -99,7 +99,7 @@ def updateTableSQL(name, label, field, newVal):
            mydb = mysql.connector.connect(
                host = "localhost",
                user = "root",
-               password = "TotheedgeMySQL20",
+               password = "Final-Passw8rd",
                database = "test" 
            ) 
            mycursor = mydb.cursor()
@@ -119,7 +119,7 @@ def createClassroomSQL(room, roomSize, name):
         mydb = mysql.connector.connect(
                host = "localhost",
                user = "root",
-               password = "TotheedgeMySQL20",
+               password = "Final-Passw8rd",
                database = "test" 
            ) 
 
