@@ -86,7 +86,10 @@ def selectedRoom(name):
 def verifySeat(name):
     if request.method == 'POST':
         seatNum = request.form['seatNum']
-
+        
+        #adding the offset for arrays vs sql tables
+        seatNum = seatNum - 1
+        
         # Rebuild room
         fContents = seatMakerEdited.readFromSQL(name)
         #fContents = seatMaker.readFile(name)
@@ -96,7 +99,7 @@ def verifySeat(name):
         # Verify that seat exists in room
         index = -1
         for i in range(len(roomFromFile)):
-            if roomFromFile[i].label == seatNum:
+            if roomFromFile[i].label == int(seatNum):
                 index = i
         # exists
         if index != -1:
