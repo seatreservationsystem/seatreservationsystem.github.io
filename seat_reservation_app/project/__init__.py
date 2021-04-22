@@ -1,8 +1,15 @@
 # init.py
 
-from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager 
+
+from .seatMakerEdited import seatMakerEdited
+from .seat import seat
+import os
+import mysql.connector
+
+
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
@@ -12,6 +19,16 @@ def create_app():
 
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+
+    # So images aren't cached
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
+        # Should match roomMaps directory in seatMakerEdited.py
+    mDIR = "static/roomMaps/"
+
+    # Create .csv and .svg directories
+    seatMakerEdited.makeCSVDIR()
+    seatMakerEdited.makeMAPDIR()
 
     db.init_app(app)
 

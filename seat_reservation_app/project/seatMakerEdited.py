@@ -123,17 +123,17 @@ def createClassroomSQL(room, roomSize, name):
                database = "test" 
            ) 
 
-           mycursor = mydb.cursor()
-           sql = "CREATE TABLE " + name + " (id INT AUTO_INCREMENT PRIMARY KEY, status VARCHAR(20), accomodations VARCHAR(20), user VARCHAR(20), xpos INT, ypos INT);"
-           mycursor.execute(sql)
-           try:
-               for x in range(roomSize):
-                   sql = "INSERT INTO " + name + " (status, accomodations, user, xpos, ypos) VALUES(%s, %s, %s, %s, %s)"
-                   val = (str(room[x].occupationStatus), str(room[x].accomedations), str(room[x].user), int(room[x].xVal), int(room[x].yVal))
-                   mycursor.execute(sql, val)
-                   mydb.commit()
-           except:
-               print("Error inserting into SQL table " + name)
+        mycursor = mydb.cursor()
+        sql = "CREATE TABLE " + name + " (id INT AUTO_INCREMENT PRIMARY KEY, status VARCHAR(20), accomodations VARCHAR(20), user VARCHAR(20), xpos INT, ypos INT);"
+        mycursor.execute(sql)
+        try:
+            for x in range(roomSize):
+                sql = "INSERT INTO " + name + " (status, accomodations, user, xpos, ypos) VALUES(%s, %s, %s, %s, %s)"
+                val = (str(room[x].occupationStatus), str(room[x].accomedations), str(room[x].user), int(room[x].xVal), int(room[x].yVal))
+                mycursor.execute(sql, val)
+                mydb.commit()
+        except:
+            print("Error inserting into SQL table " + name)
     except:
         print("Error creating SQL table " + name)
         pass
