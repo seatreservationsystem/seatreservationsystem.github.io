@@ -1,4 +1,0 @@
-Template link: https://templated.co/ion
-Login form link: https://www.w3schools.com/howto/howto_css_login_form.asp
-On step 2 with the setup: https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3#step-2-%E2%80%94-creating-a-base-application
-test2
