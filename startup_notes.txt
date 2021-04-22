@@ -9,7 +9,7 @@
 
 
 
-to create the user db:
+to create the user db (use python interpreter in the terminal):
 
 >>> from project import db, create_app, models
 >>> db.create_all(app=create_app())
