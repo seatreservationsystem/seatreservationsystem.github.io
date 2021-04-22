@@ -1,5 +1,5 @@
 1) Navigate to auth folder (the virtual env) the enter "source ./bin/activate". The virtual env with flask should be running
-2) return to flash_auth_app directory and enter:
+2) return to seat_reservation_app directory and enter:
 
     export FLASK_APP=project
     export FLASK_DEBUG=1
